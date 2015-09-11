@@ -8,11 +8,13 @@ dependencies:
 
 test:
   override:
-    - docker build -t pvdvreede/dev:latest .
+    - docker build -t pvdvreede/dev:$CIRCLE_BUILD_NUM .
+    - docker tag pvdvreede/dev:$CIRCLE_BUILD_NUM pvdvreede/dev:latest
 
 deployment:
   hub:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push pvdvreede/dev:$CIRCLE_BUILD_NUM
       - docker push pvdvreede/dev:latest
