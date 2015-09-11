@@ -14,6 +14,12 @@ RUN \
 
 RUN useradd dev -N -m -G sudo
 
+# set timezone
+RUN ln -f -s /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
+# set utf-8 encoding
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 # terminal setup
 RUN git clone --depth=1 https://github.com/Bash-it/bash-it.git /home/dev/.bash_it
 COPY config/bash_profile /home/dev/.bash_profile
