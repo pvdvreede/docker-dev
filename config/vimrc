@@ -1,0 +1,53 @@
+execute pathogen#infect()
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
+
+" needed for vim-airline
+set laststatus=2
+
+set nocompatible
+set encoding=utf-8
+set showcmd
+
+" searching
+set hlsearch
+set ignorecase
+set incsearch
+
+set paste
+
+set nu
+set relativenumber
+
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
+
+set background=dark
+colorscheme PaperColor
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" remap colon to semicolon to avoid the shift
+nnoremap ; :
+
+set noswapfile
+set colorcolumn=80
+
+" clear whitespace at the end of a line for EVERY filetype
+autocmd BufWritePre * :%s/\s\+$//e
+
+" for gitgutter plugin
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
+" vim easy align plugin
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+"
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
