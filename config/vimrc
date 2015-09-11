@@ -39,10 +39,6 @@ set colorcolumn=80
 " clear whitespace at the end of a line for EVERY filetype
 autocmd BufWritePre * :%s/\s\+$//e
 
-" for gitgutter plugin
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-
 " vim easy align plugin
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
